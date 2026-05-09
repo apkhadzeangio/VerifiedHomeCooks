@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 
 from apps.accounts.forms import CustomerProfileEditForm
 from apps.accounts.models import CookProfile, CustomerProfile, User
+from apps.accounts.models import User
 
 
 @login_required
@@ -39,6 +40,7 @@ def customer_profile_edit(request):
     else:
         form = CustomerProfileEditForm(instance=profile, user=request.user)
     return render(request, 'dashboard/customer_profile_edit.html', {'form': form})
+    return render(request, 'dashboard/customer_dashboard.html')
 
 
 @login_required

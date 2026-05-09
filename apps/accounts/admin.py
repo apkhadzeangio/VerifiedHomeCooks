@@ -125,3 +125,7 @@ class CookVerificationAdmin(admin.ModelAdmin):
             cook.verification_status = CookProfile.VerificationStatus.SUSPENDED
             cook.is_available = False
             cook.save(update_fields=['verification_status', 'is_available'])
+    list_display = ('cook', 'full_name', 'status', 'submitted_at', 'reviewed_at', 'reviewed_by')
+    list_filter = ('status', 'submitted_at', 'reviewed_at')
+    search_fields = ('full_name', 'cook__user__username', 'cook__phone_number')
+    readonly_fields = ('submitted_at',)
