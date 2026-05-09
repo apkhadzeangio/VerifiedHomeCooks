@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cook Application Status</h2>
+<p><strong>Status:</strong> {{ status }}</p>
+<p>{{ status_message }}</p>
+{% if admin_comment %}
+  <div class="alert alert-warning">
+    <strong>Admin comment:</strong> {{ admin_comment }}
+  </div>
+{% endif %}
+{% endblock %}
