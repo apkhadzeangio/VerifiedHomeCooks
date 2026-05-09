@@ -37,6 +37,9 @@ def cook_application_status_view(request):
 
     message_map = {
         CookVerification.Status.PENDING: 'Your application is pending review.',
+        CookVerification.Status.APPROVED: 'You are approved as a cook. You can now access your cook dashboard.',
+        CookVerification.Status.REJECTED: 'Your application was rejected. Please review admin comments.',
+        CookVerification.Status.SUSPENDED: 'Your cook account is suspended. Please contact support.',
         CookVerification.Status.APPROVED: 'Your application has been approved.',
         CookVerification.Status.REJECTED: 'Your application was rejected. Please review admin comments.',
         CookVerification.Status.SUSPENDED: 'Your application is currently suspended.',
