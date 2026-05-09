@@ -17,15 +17,6 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
           <li class="nav-item"><a class="nav-link" href="{% url 'dashboard:role_redirect' %}">Dashboard</a></li>
-          {% if user.role == 'CUSTOMER' and not user.has_cook_profile %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'cooks:cook_apply' %}">Become a Cook</a></li>
-          {% endif %}
-          {% if user.has_cook_profile %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'cooks:cook_application_status' %}">Cook Application Status</a></li>
-          {% endif %}
-          {% if user.role == 'CUSTOMER' %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'dashboard:customer_profile_edit' %}">Edit Profile</a></li>
-          {% endif %}
           <li class="nav-item">
             <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}
               <button type="submit" class="btn btn-link nav-link">Logout</button>
