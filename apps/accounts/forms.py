@@ -1,12 +1,9 @@
-from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 from .models import User
 
 
 class CustomerRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
     class Meta:
         model = User
         fields = ('username', 'email', 'phone_number', 'password1', 'password2')
@@ -20,4 +17,4 @@ class CustomerRegistrationForm(UserCreationForm):
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Username or Email')
+    pass
